@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  postgres:
+    container_name: testdb
+    image: 'postgres:9.6'
+    ports:
+      - '5432:5432/tcp'
+    environment:
+      TZ: 'US/Central'
+      POSTGRES_DB: test
+      POSTGRES_USER: sa
+      POSTGRES_PASSWORD: sa1234
+    volumes:
+      - test_data:/var/lib/postgresql/data
+
+volumes:
+  test_data:
