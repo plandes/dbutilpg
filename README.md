@@ -14,6 +14,8 @@ pip3 install zensols.dbutilpg
 
 Binaries are also available on [pypi].
 
+On macOS, use `make macosdep`.
+
 
 ## Changelog
 
