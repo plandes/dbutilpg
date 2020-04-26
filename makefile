@@ -4,7 +4,6 @@
 PROJ_TYPE=		python
 POSTGRES_DIR ?=		postgres
 CLEAN_ALL_DEPS +=	dkcleanall
-#PY_TEST_DEPS ?=		testup
 
 include ./zenbuild/main.mk
 
@@ -28,3 +27,7 @@ dkcleanall:
 .PHONY:		testup
 testup:		up
 		sleep 5
+
+.PHONY:		testdocker
+testdocker:	testup
+		src/bin/testdb.sh
