@@ -8,7 +8,6 @@ from pathlib import Path
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from zensols.db import (
-    connection,
     DbPersister,
     ConnectionManager,
     ConnectionManagerConfigurer,

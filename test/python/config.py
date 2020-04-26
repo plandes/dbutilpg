@@ -1,4 +1,4 @@
-from zensols.actioncli import ExtendedInterpolationEnvConfig
+from zensols.config import ExtendedInterpolationEnvConfig
 
 
 class AppConfig(ExtendedInterpolationEnvConfig):
