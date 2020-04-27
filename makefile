@@ -28,6 +28,7 @@ dkcleanall:
 testup:		up
 		sleep 5
 
+# primary test target
 .PHONY:		testdocker
 testdocker:	testup
 		src/bin/testdb.sh
