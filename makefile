@@ -4,6 +4,8 @@
 PROJ_TYPE=		python
 POSTGRES_DIR ?=		postgres
 CLEAN_ALL_DEPS +=	dkcleanall
+PY_TEST_DEPS +=		testup
+PYTHON_TEST_ENV = 	NLP_SERV=localhost NLP_PORT=5432 NLP_USER=sa NLP_PASS=sa1234
 
 include ./zenbuild/main.mk
 
@@ -26,9 +28,4 @@ dkcleanall:
 
 .PHONY:		testup
 testup:		up
-		sleep 5
-
-# primary test target
-.PHONY:		testdocker
-testdocker:	testup
-		src/bin/testdb.sh
+		sleep 1

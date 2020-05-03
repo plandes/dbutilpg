@@ -8,9 +8,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+### Changed
+- Remove `ConnectionManagerConfigurer` as a part of upgrading to `zensol.util`
+  per v. 1.2.2.
+
+
 ## [0.0.2] - 2020-04-25
 ### Changed
-- Upgrade to ``zensols.util`` 1.2.0.
+- Upgrade to `zensols.util` 1.2.0.
 
 
 ## [0.0.1] - 2019-08-07

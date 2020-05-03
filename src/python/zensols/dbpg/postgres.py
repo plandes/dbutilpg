@@ -4,15 +4,9 @@
 __author__ = 'Paul Landes'
 
 import logging
-from pathlib import Path
 import psycopg2
 from psycopg2.extras import RealDictCursor
-from zensols.db import (
-    DbPersister,
-    ConnectionManager,
-    ConnectionManagerConfigurer,
-    DbPersisterFactory,
-)
+from zensols.db import DbPersister, ConnectionManager
 
 logger = logging.getLogger(__name__)
 
@@ -25,8 +19,7 @@ class PostgresConnectionManager(ConnectionManager):
     DROP_SQL = 'drop owned by {user}'
 
     def __init__(self, db_name: str, host: str, port: str,
-                 user: str, password: str,
-                 persister: DbPersister, create_db: bool = True,
+                 user: str, password: str, create_db: bool = True,
                  capture_lastrowid: bool = False, fast_insert: bool = False):
         """Initialize.
 
@@ -34,13 +27,12 @@ class PostgresConnectionManager(ConnectionManager):
                           (needed to get the initialization DDL SQL)
 
         """
-        super(PostgresConnectionManager, self).__init__()
+        super().__init__()
         self.db_name = db_name
         self.port = port
         self.host = host
         self.user = user
         self.password = password
-        self.persister = persister
         self.create_db = create_db
         self.capture_lastrowid = capture_lastrowid
         self.fast_insert = fast_insert
@@ -162,22 +154,3 @@ class PostgresConnectionManager(ConnectionManager):
             return self._insert_rows_fast(conn, sql, rows, map_fn)
         else:
             return self._insert_rows_slow(conn, sql, rows, errors, set_id_fn, map_fn)
-
-
-class SqliteConnectionManagerConfigurer(ConnectionManagerConfigurer):
-    def configure(self, params):
-        params['sql_file'] = Path(params['sql_file'])
-        kwargs = {}
-        pnmes = 'host port db_name user password create_db ' + \
-            'capture_lastrowid fast_insert'
-        for n in pnmes.split():
-            if n in params:
-                kwargs[n] = params[n]
-                del params[n]
-        logger.debug(f'config using arguments: {kwargs}')
-        kwargs['persister'] = None
-        params['conn_manager'] = PostgresConnectionManager(**kwargs)
-
-
-DbPersisterFactory.register_connection_manager_configurer(
-    SqliteConnectionManagerConfigurer, 'postgres')

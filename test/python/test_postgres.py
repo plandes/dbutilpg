@@ -1,7 +1,7 @@
 import logging
 import unittest
 from config import AppConfig
-from zensols.dbpg import DbPersisterFactory
+from zensols.config import ImportConfigFactory
 from zensols.db import Bean
 
 logger = logging.getLogger(__name__)
@@ -21,17 +21,17 @@ class Person(Bean):
         return 'id name age'.split()
 
 
-class TestSqlLite(unittest.TestCase):
+class TestPostgresConnManager(unittest.TestCase):
     def setUp(self):
         self.config = AppConfig.instance()
-        self.fac = DbPersisterFactory(self.config)
+        self.fac = ImportConfigFactory(self.config)
 
     def tearDown(self):
-        persister = self.fac.instance('inst_pg')
+        persister = self.fac.instance('inst_pg_db_persister')
         persister.execute_no_read('destroy')
 
     def test_pg(self):
-        persister = self.fac.instance('inst_pg', row_factory='dict')
+        persister = self.fac.instance('inst_pg_db_persister', row_factory='dict')
         persister.conn_manager.capture_lastrowid = True
         self.assertEqual(0, persister.get_count())
         self.assertEqual(1, persister.insert_row('paul', 23))
