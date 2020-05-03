@@ -3,6 +3,7 @@
 # type of project
 PROJ_TYPE=		python
 POSTGRES_DIR ?=		postgres
+CLEAN_DEPS +=		down
 CLEAN_ALL_DEPS +=	dkcleanall
 PY_TEST_DEPS +=		testup
 PYTHON_TEST_ENV = 	NLP_SERV=localhost NLP_PORT=5432 NLP_USER=sa NLP_PASS=sa1234
@@ -20,7 +21,7 @@ up:
 
 .PHONY:		down
 down:
-		make -C $(POSTGRES_DIR) down
+		make -C $(POSTGRES_DIR) down || true
 
 .PHONY:		dkcleanall
 dkcleanall:

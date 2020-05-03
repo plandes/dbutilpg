@@ -3,6 +3,7 @@
 """
 __author__ = 'Paul Landes'
 
+from dataclasses import dataclass, field
 import logging
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -11,31 +12,35 @@ from zensols.db import DbPersister, ConnectionManager
 logger = logging.getLogger(__name__)
 
 
+@dataclass
 class PostgresConnectionManager(ConnectionManager):
     """An Postgres connection factory.
+
+    :param persister: the persister that will use this connection factory
+                      (needed to get the initialization DDL SQL)
+
+    :param db_name: database name on the server
+    :param host: the host name of the database
+    :param port: the host port of the database
+    :param user: the user (if any) to log in with
+    :param password: the login password
+    :param create_db: if ``True`` create the database if it does not already exist
+    :param capture_lastrowid: if ``True``, select the last row for each query
+    :param fast_insert: if ``True`` use `insertmany` on the cursor for fast
+                        insert in to the database
 
     """
     EXISTS_SQL = 'select count(*) from information_schema.tables where table_schema = \'public\''
     DROP_SQL = 'drop owned by {user}'
 
-    def __init__(self, db_name: str, host: str, port: str,
-                 user: str, password: str, create_db: bool = True,
-                 capture_lastrowid: bool = False, fast_insert: bool = False):
-        """Initialize.
-
-        :param persister: the persister that will use this connection factory
-                          (needed to get the initialization DDL SQL)
-
-        """
-        super().__init__()
-        self.db_name = db_name
-        self.port = port
-        self.host = host
-        self.user = user
-        self.password = password
-        self.create_db = create_db
-        self.capture_lastrowid = capture_lastrowid
-        self.fast_insert = fast_insert
+    db_name: str
+    host: str
+    port: str
+    user: str
+    password: str
+    create_db: bool = field(default=True)
+    capture_lastrowid: bool = field(default=False)
+    fast_insert: bool = field(default=False)
 
     def _init_db(self, conn, cur):
         logger.info(f'initializing database...')
@@ -45,7 +50,7 @@ class PostgresConnectionManager(ConnectionManager):
             conn.commit()
 
     def create(self):
-        logger.debug(f'creating connection to {self.host}:{self.port} with '+
+        logger.debug(f'creating connection to {self.host}:{self.port} with ' +
                      f'{self.user} on database: {self.db_name}')
         conn = psycopg2.connect(
             host=self.host, database=self.db_name, port=self.port,
