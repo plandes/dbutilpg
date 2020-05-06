@@ -47,8 +47,8 @@ SOFTWARE.
 
 <!-- links -->
 [pypi]: https://pypi.org/project/zensols.dbutilpg/
-[pypi-link]: https://pypi.python.org/pypi/zensols.dbutilpg
-[pypi-badge]: https://img.shields.io/pypi/v/zensols.dbutilpg.svg
+[pypi-link]: https://pypi.python.org/pypi/zensols.db
+[pypi-badge]: https://img.shields.io/pypi/v/zensols.db.svg
 
 [PostgreSQL]: https://www.postgresql.org
 [dbutil]: https://github.com/plandes/dbutil
