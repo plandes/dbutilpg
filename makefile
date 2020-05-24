@@ -2,6 +2,7 @@
 
 # type of project
 PROJ_TYPE=		python
+PROJ_MODULES=	git python-doc
 POSTGRES_DIR ?=		postgres
 CLEAN_DEPS +=		down
 CLEAN_ALL_DEPS +=	dkcleanall
