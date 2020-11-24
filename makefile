@@ -2,14 +2,16 @@
 
 # type of project
 PROJ_TYPE=		python
-PROJ_MODULES=	git python-doc
+PROJ_MODULES=		git python-doc python-doc-deploy
 POSTGRES_DIR ?=		postgres
 CLEAN_DEPS +=		down
 CLEAN_ALL_DEPS +=	dkcleanall
 PY_TEST_DEPS +=		testup
 PYTHON_TEST_ENV = 	NLP_SERV=localhost NLP_PORT=5432 NLP_USER=sa NLP_PASS=sa1234
 
+
 include ./zenbuild/main.mk
+
 
 .PHONY:		macosdep
 macosdep:	pydeps
