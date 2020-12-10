@@ -1,2 +1,2 @@
-zensols.db>=0.0.7
+zensols.db>=0.0.8
 psycopg2>=2.8.3
