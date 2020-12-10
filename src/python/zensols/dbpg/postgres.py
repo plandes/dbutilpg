@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 import logging
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from psycopg2 import ProgrammingError
 from zensols.db import DbPersister, ConnectionManager
 
 logger = logging.getLogger(__name__)
@@ -106,8 +107,12 @@ class PostgresConnectionManager(ConnectionManager):
         try:
             cur.execute(sql, params)
             conn.commit()
-            if self.capture_lastrowid:
-                return cur.fetchone()[0]
+            if self.capture_lastrowid is not None:
+                try:
+                    return cur.fetchone()[0]
+                except ProgrammingError:
+                    # actions like dropping a table will not return a rowid
+                    pass
         finally:
             cur.close()
 
