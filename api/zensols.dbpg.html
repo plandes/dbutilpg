@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>zensols.dbpg package &mdash; A PostgreSQL implementation of the dbutil library 0.0.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="../CONTRIBUTING.html" />
+    <link rel="prev" title="API Reference" href="../api.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../top.html" class="icon icon-home" alt="Documentation Home"> A PostgreSQL implementation of the dbutil library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">zensols.dbpg package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zensols.dbpg.postgres">zensols.dbpg.postgres module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zensols.dbpg">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../top.html">A PostgreSQL implementation of the dbutil library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../top.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../api.html">API Reference</a> &raquo;</li>
+        
+      <li>zensols.dbpg package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/zensols.dbpg.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zensols-dbpg-package">
+<h1>zensols.dbpg package<a class="headerlink" href="#zensols-dbpg-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-zensols.dbpg.postgres">
+<span id="zensols-dbpg-postgres-module"></span><h2>zensols.dbpg.postgres module<a class="headerlink" href="#module-zensols.dbpg.postgres" title="Permalink to this headline">¶</a></h2>
+<p>Postgres implementation of the <code class="docutils literal notranslate"><span class="pre">ConnectionManager</span></code>.</p>
+<dl class="py class">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager">
+<em class="property">class </em><code class="sig-prename descclassname">zensols.dbpg.postgres.</code><code class="sig-name descname">PostgresConnectionManager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db_name</span></em>, <em class="sig-param"><span class="n">host</span></em>, <em class="sig-param"><span class="n">port</span></em>, <em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">password</span></em>, <em class="sig-param"><span class="n">create_db</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">capture_lastrowid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fast_insert</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zensols/dbpg/postgres.html#PostgresConnectionManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://plandes.github.io/dbutil/api/zensols.db.html#zensols.db.bean.ConnectionManager" title="(in Database convenience utilities. v0.0.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">zensols.db.bean.ConnectionManager</span></code></a></p>
+<p>An Postgres connection factory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>persister</strong> – the persister that will use this connection factory
+(needed to get the initialization DDL SQL)</p></li>
+<li><p><strong>db_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – database name on the server</p></li>
+<li><p><strong>host</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – the host name of the database</p></li>
+<li><p><strong>port</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – the host port of the database</p></li>
+<li><p><strong>user</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – the user (if any) to log in with</p></li>
+<li><p><strong>password</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – the login password</p></li>
+<li><p><strong>create_db</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code> create the database if it does not already
+exist</p></li>
+<li><p><strong>capture_lastrowid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code>, select the last row for each query</p></li>
+<li><p><strong>fast_insert</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code> use <cite>insertmany</cite> on the cursor for fast
+insert in to the database</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.DROP_SQL">
+<code class="sig-name descname">DROP_SQL</code><em class="property"> = 'drop owned by {user}'</em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.DROP_SQL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.EXISTS_SQL">
+<code class="sig-name descname">EXISTS_SQL</code><em class="property"> = &quot;select count(*) from information_schema.tables where table_schema = 'public'&quot;</em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.EXISTS_SQL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db_name</span></em>, <em class="sig-param"><span class="n">host</span></em>, <em class="sig-param"><span class="n">port</span></em>, <em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">password</span></em>, <em class="sig-param"><span class="n">create_db</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">capture_lastrowid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fast_insert</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.capture_lastrowid">
+<code class="sig-name descname">capture_lastrowid</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><em class="property"> = False</em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.capture_lastrowid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zensols/dbpg/postgres.html#PostgresConnectionManager.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a connection to the database.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.create_db">
+<code class="sig-name descname">create_db</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><em class="property"> = True</em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.create_db" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.db_name">
+<code class="sig-name descname">db_name</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.db_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.drop">
+<code class="sig-name descname">drop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zensols/dbpg/postgres.html#PostgresConnectionManager.drop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all objects from the database or the database itself.</p>
+<p>For SQLite, this deletes the file.  In database implementations, this
+might drop all objects from the database.  Regardless, it is expected
+that <code class="docutils literal notranslate"><span class="pre">create</span></code> is able to recreate the database after this action.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">conn</span></em>, <em class="sig-param"><span class="n">sql</span></em>, <em class="sig-param"><span class="n">params</span></em>, <em class="sig-param"><span class="n">row_factory</span></em>, <em class="sig-param"><span class="n">map_fn</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zensols/dbpg/postgres.html#PostgresConnectionManager.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <code class="xref py py-meth docutils literal notranslate"><span class="pre">execute()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.execute_no_read">
+<code class="sig-name descname">execute_no_read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">conn</span></em>, <em class="sig-param"><span class="n">sql</span></em>, <em class="sig-param"><span class="n">params</span><span class="o">=</span><span class="default_value">()</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zensols/dbpg/postgres.html#PostgresConnectionManager.execute_no_read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.execute_no_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <code class="xref py py-meth docutils literal notranslate"><span class="pre">DbPersister.execute_no_read()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.fast_insert">
+<code class="sig-name descname">fast_insert</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><em class="property"> = False</em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.fast_insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.host">
+<code class="sig-name descname">host</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.insert_rows">
+<code class="sig-name descname">insert_rows</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">conn</span></em>, <em class="sig-param"><span class="n">sql</span></em>, <em class="sig-param"><span class="n">rows</span></em>, <em class="sig-param"><span class="n">errors</span></em>, <em class="sig-param"><span class="n">set_id_fn</span></em>, <em class="sig-param"><span class="n">map_fn</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zensols/dbpg/postgres.html#PostgresConnectionManager.insert_rows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.insert_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <code class="xref py py-meth docutils literal notranslate"><span class="pre">InsertableBeanDbPersister.insert_rows()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.password">
+<code class="sig-name descname">password</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.port">
+<code class="sig-name descname">port</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="zensols.dbpg.postgres.PostgresConnectionManager.user">
+<code class="sig-name descname">user</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#zensols.dbpg.postgres.PostgresConnectionManager.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-zensols.dbpg">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-zensols.dbpg" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CONTRIBUTING.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../api.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Paul Landes
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
