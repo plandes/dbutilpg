@@ -85,3 +85,10 @@ class TestPostgresConnManager(unittest.TestCase):
         peeps = persister.get()
         self.assertEqual({'id': 6, 'name': 'jake', 'age': 62}, peeps[2].get_attrs())
         self.assertEqual({'id': 7, 'name': 'christina', 'age': 22}, peeps[1].get_attrs())
+
+        df = persister.execute_by_name('select_people', row_factory='pandas')
+        self.assertEqual(6, len(df))
+        self.assertEqual(['name', 'age', 'id'], list(df.columns))
+        self.assertEqual('bob christina jake jane kyle paul'.split(),
+                         df['name'].tolist())
+        self.assertEqual([42, 22, 62, 90, 52, 23], df['age'].tolist())

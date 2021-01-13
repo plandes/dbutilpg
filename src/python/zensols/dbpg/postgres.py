@@ -3,12 +3,14 @@
 """
 __author__ = 'Paul Landes'
 
+from typing import Any, Tuple, Union, Callable
 from dataclasses import dataclass, field
 import logging
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from psycopg2 import ProgrammingError
-from zensols.db import DbPersister, ConnectionManager
+import pandas as pd
+from zensols.db import ConnectionManager
 
 logger = logging.getLogger(__name__)
 
@@ -21,12 +23,20 @@ class PostgresConnectionManager(ConnectionManager):
                       (needed to get the initialization DDL SQL)
 
     :param db_name: database name on the server
+
     :param host: the host name of the database
+
     :param port: the host port of the database
+
     :param user: the user (if any) to log in with
+
     :param password: the login password
-    :param create_db: if ``True`` create the database if it does not already exist
+
+    :param create_db: if ``True`` create the database if it does not already
+                      exist
+
     :param capture_lastrowid: if ``True``, select the last row for each query
+
     :param fast_insert: if ``True`` use `insertmany` on the cursor for fast
                         insert in to the database
 
@@ -44,7 +54,7 @@ class PostgresConnectionManager(ConnectionManager):
     fast_insert: bool = field(default=False)
 
     def _init_db(self, conn, cur):
-        logger.info(f'initializing database...')
+        logger.info('initializing database...')
         for sql in self.persister.parser.get_init_db_sqls():
             logger.debug(f'invoking sql: {sql}')
             cur.execute(sql)
@@ -75,8 +85,10 @@ class PostgresConnectionManager(ConnectionManager):
             cur.close()
             conn.close()
 
-    def execute(self, conn, sql, params, row_factory, map_fn):
-        """See ``DbPersister.execute``.
+    def execute(self, conn: Any, sql: str, params: Tuple[Any],
+                row_factory: Union[str, Callable],
+                map_fn: Callable) -> Tuple[Union[dict, tuple, pd.DataFrame]]:
+        """See :meth:`~zensols/db.bean.ConnectionManager.execute`.
 
         """
         def other_rf_fn(row):
@@ -85,19 +97,25 @@ class PostgresConnectionManager(ConnectionManager):
         create_fn = None
         if row_factory == 'dict':
             cur = conn.cursor(cursor_factory=RealDictCursor)
-        elif row_factory == 'tuple':
+        elif row_factory == 'tuple' or row_factory == 'pandas':
             cur = conn.cursor()
         else:
             create_fn = other_rf_fn
             cur = conn.cursor()
         try:
+            tupify = True
             cur.execute(sql, params)
             res = cur.fetchall()
             if create_fn is not None:
                 res = map(create_fn, res)
             if map_fn is not None:
                 res = map(map_fn, res)
-            return tuple(res)
+            if row_factory == 'pandas':
+                res = self._to_dataframe(res, cur)
+                tupify = False
+            if tupify:
+                res = tuple(res)
+            return res
         finally:
             cur.close()
 
