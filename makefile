@@ -3,7 +3,12 @@
 # type of project
 PROJ_TYPE=		python
 PROJ_MODULES=		git python-doc python-doc-deploy
+
+# project
 POSTGRES_DIR ?=		postgres
+
+# build
+PY_DEP_POST_DEPS +=	macosdep
 CLEAN_DEPS +=		down
 CLEAN_ALL_DEPS +=	dkcleanall
 PY_TEST_DEPS +=		testup
@@ -14,7 +19,7 @@ include ./zenbuild/main.mk
 
 
 .PHONY:		macosdep
-macosdep:	pydeps
+macosdep:
 		brew install libpq
 		PATH="$(brew --prefix libpq)/bin:$PATH" pip install psycopg2==2.8.3
 
