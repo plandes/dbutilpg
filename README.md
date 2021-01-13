@@ -41,8 +41,8 @@ Copyright (c) 2020 - 2021 Paul Landes
 
 <!-- links -->
 [pypi]: https://pypi.org/project/zensols.dbutilpg/
-[pypi-link]: https://pypi.python.org/pypi/zensols.db
-[pypi-badge]: https://img.shields.io/pypi/v/zensols.db.svg
+[pypi-link]: https://pypi.python.org/pypi/zensols.dbpg
+[pypi-badge]: https://img.shields.io/pypi/v/zensols.dbpg.svg
 [python37-badge]: https://img.shields.io/badge/python-3.7-blue.svg
 [python37-link]: https://www.python.org/downloads/release/python-370
 [python38-badge]: https://img.shields.io/badge/python-3.8-blue.svg
