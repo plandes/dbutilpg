@@ -21,7 +21,7 @@ include ./zenbuild/main.mk
 .PHONY:		macosdep
 macosdep:
 		brew install libpq
-		PATH="$(brew --prefix libpq)/bin:$PATH" pip install psycopg2==2.8.3
+		PATH="$$(brew --prefix libpq)/bin:$$PATH" pip install psycopg2==2.8.3
 
 .PHONY:		up
 up:
