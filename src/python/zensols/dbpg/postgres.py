@@ -10,7 +10,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from psycopg2 import ProgrammingError
 import pandas as pd
-from zensols.db import ConnectionManager
+from zensols.db import DBError, ConnectionManager
 
 logger = logging.getLogger(__name__)
 
@@ -19,39 +19,36 @@ logger = logging.getLogger(__name__)
 class PostgresConnectionManager(ConnectionManager):
     """An Postgres connection factory.
 
-    :param persister: the persister that will use this connection factory
-                      (needed to get the initialization DDL SQL)
-
-    :param db_name: database name on the server
-
-    :param host: the host name of the database
-
-    :param port: the host port of the database
-
-    :param user: the user (if any) to log in with
-
-    :param password: the login password
-
-    :param create_db: if ``True`` create the database if it does not already
-                      exist
-
-    :param capture_lastrowid: if ``True``, select the last row for each query
-
-    :param fast_insert: if ``True`` use `insertmany` on the cursor for fast
-                        insert in to the database
-
     """
     EXISTS_SQL = 'select count(*) from information_schema.tables where table_schema = \'public\''
     DROP_SQL = 'drop owned by {user}'
 
-    db_name: str
-    host: str
-    port: str
-    user: str
-    password: str
+    db_name: str = field()
+    """Database name on the server."""
+
+    host: str = field()
+    """The host name of the database."""
+
+    port: str = field()
+    """The host port of the database."""
+
+    user: str = field()
+    """The user (if any) to log in with."""
+
+    password: str = field()
+    """The login password."""
+
     create_db: bool = field(default=True)
+    """If ``True`` create the database if it does not already exist."""
+
     capture_lastrowid: bool = field(default=False)
+    """If ``True``, select the last row for each query."""
+
     fast_insert: bool = field(default=False)
+    """If ``True`` use `insertmany` on the cursor for fast insert in to the
+    database.
+
+    """
 
     def _init_db(self, conn, cur):
         logger.info('initializing database...')
@@ -157,7 +154,7 @@ class PostgresConnectionManager(ConnectionManager):
                     except Exception as e:
                         logger.error(f'could not insert row ({len(row)})', e)
                 else:
-                    raise ValueError(f'unknown errors value: {errors}')
+                    raise DBError(f'unknown errors value: {errors}')
                 if set_id_fn is not None:
                     set_id_fn(org_row, cur.lastrowid)
         finally:
@@ -181,4 +178,5 @@ class PostgresConnectionManager(ConnectionManager):
         if self.fast_insert:
             return self._insert_rows_fast(conn, sql, rows, map_fn)
         else:
-            return self._insert_rows_slow(conn, sql, rows, errors, set_id_fn, map_fn)
+            return self._insert_rows_slow(
+                conn, sql, rows, errors, set_id_fn, map_fn)
