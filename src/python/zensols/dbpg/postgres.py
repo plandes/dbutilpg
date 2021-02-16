@@ -85,7 +85,7 @@ class PostgresConnectionManager(ConnectionManager):
     def execute(self, conn: Any, sql: str, params: Tuple[Any],
                 row_factory: Union[str, Callable],
                 map_fn: Callable) -> Tuple[Union[dict, tuple, pd.DataFrame]]:
-        """See :meth:`~zensols/db.bean.ConnectionManager.execute`.
+        """See :meth:`~zensols.db.bean.ConnectionManager.execute`.
 
         """
         def other_rf_fn(row):
