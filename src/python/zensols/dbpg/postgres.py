@@ -51,15 +51,18 @@ class PostgresConnectionManager(ConnectionManager):
     """
 
     def _init_db(self, conn, cur):
-        logger.info('initializing database...')
+        if logger.isEnabledFor(logging.DEBUG):
+            logger.info('initializing database...')
         for sql in self.persister.parser.get_init_db_sqls():
-            logger.debug(f'invoking sql: {sql}')
+            if logger.isEnabledFor(logging.DEBUG):
+                logger.debug(f'invoking sql: {sql}')
             cur.execute(sql)
             conn.commit()
 
     def create(self):
-        logger.debug(f'creating connection to {self.host}:{self.port} with ' +
-                     f'{self.user} on database: {self.db_name}')
+        if logger.isEnabledFor(logging.DEBUG):
+            logger.debug(f'creating connection to {self.host}:{self.port} ' +
+                         f'with {self.user} on database: {self.db_name}')
         conn = psycopg2.connect(
             host=self.host, database=self.db_name, port=self.port,
             user=self.user, password=self.password)
@@ -118,7 +121,8 @@ class PostgresConnectionManager(ConnectionManager):
 
     def execute_no_read(self, conn, sql, params=()) -> int:
         cur = conn.cursor()
-        logger.debug(f'execute no read: {sql}')
+        if logger.isEnabledFor(logging.DEBUG):
+            logger.debug(f'execute no read: {sql}')
         try:
             cur.execute(sql, params)
             conn.commit()
@@ -159,12 +163,14 @@ class PostgresConnectionManager(ConnectionManager):
                     set_id_fn(org_row, cur.lastrowid)
         finally:
             cur.close()
-        logger.debug(f'inserted with rowid: {rowid}')
+        if logger.isEnabledFor(logging.DEBUG):
+            logger.debug(f'inserted with rowid: {rowid}')
         return rowid
 
     def _insert_rows_fast(self, conn, sql, rows: list, map_fn) -> int:
         cur = conn.cursor()
-        logger.debug('inserting rows fast')
+        if logger.isEnabledFor(logging.DEBUG):
+            logger.debug('inserting rows fast')
         try:
             if map_fn is not None:
                 rows = map(map_fn, rows)

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Switch to new `DBError` in place of generic error.
 - Inline `dataclass` field documentation.
+- New dependencies and doc.
 
 
 ## [0.0.5] - 2021-01-12
