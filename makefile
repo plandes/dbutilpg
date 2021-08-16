@@ -33,7 +33,7 @@ down:
 
 .PHONY:		dkcleanall
 dkcleanall:
-		make -C $(POSTGRES_DIR) cleanall
+		make -C $(POSTGRES_DIR) cleanall rmvol
 
 .PHONY:		testup
 testup:		up

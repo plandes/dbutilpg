@@ -104,6 +104,8 @@ class PostgresConnectionManager(ConnectionManager):
             cur = conn.cursor()
         try:
             tupify = True
+            if logger.isEnabledFor(logging.DEBUG):
+                logger.debug(f'pg exec sql=<{sql}>, params=<{params}>')
             cur.execute(sql, params)
             res = cur.fetchall()
             if create_fn is not None:
