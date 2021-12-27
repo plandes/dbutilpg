@@ -37,4 +37,4 @@ dkcleanall:
 
 .PHONY:		testup
 testup:		up
-		sleep 1
+		sleep 2

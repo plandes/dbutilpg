@@ -94,10 +94,16 @@ class PostgresConnectionManager(ConnectionManager):
         def other_rf_fn(row):
             return row_factory(*row)
 
+        def identity_rf_fn(row):
+            return row
+
         create_fn = None
         if row_factory == 'dict':
             cur = conn.cursor(cursor_factory=RealDictCursor)
         elif row_factory == 'tuple' or row_factory == 'pandas':
+            cur = conn.cursor()
+        elif row_factory == 'identity':
+            create_fn = identity_rf_fn
             cur = conn.cursor()
         else:
             create_fn = other_rf_fn
