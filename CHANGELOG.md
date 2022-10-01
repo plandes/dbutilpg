@@ -19,6 +19,9 @@ First stable feature release.
 - Inline `dataclass` field documentation.
 - New dependencies and doc.
 
+### Removed
+- Support for Python 3.7 and 3.8.
+
 
 ## [0.0.5] - 2021-01-12
 ### Added
