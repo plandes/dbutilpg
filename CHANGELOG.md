@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [0.1.0] - 2022-10-01
+First stable feature release.
+
+### Added
+- Identity row factory.
+
 ### Changed
 - Switch to new `DBError` in place of generic error.
 - Inline `dataclass` field documentation.
@@ -41,7 +47,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 <!-- links -->
-[Unreleased]: https://github.com/plandes/dbutilpg/compare/v0.0.5...HEAD
+[Unreleased]: https://github.com/plandes/dbutilpg/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/plandes/dbutilpg/compare/v0.0.5...v0.1.0
 [0.0.5]: https://github.com/plandes/dbutilpg/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/plandes/dbutilpg/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/plandes/dbutilpg/compare/v0.0.2...v0.0.3
