@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+### Changed
+- Fix tests after upgrading `zensols.dbutil` .
+
+
 ## [0.1.0] - 2022-10-01
 First stable feature release.
 
