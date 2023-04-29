@@ -49,7 +49,6 @@ class PostgresConnectionManager(ConnectionManager):
     database.
 
     """
-
     def _init_db(self, conn, cur):
         if logger.isEnabledFor(logging.DEBUG):
             logger.info('initializing database...')
@@ -166,7 +165,7 @@ class PostgresConnectionManager(ConnectionManager):
                     except Exception as e:
                         logger.error(f'could not insert row ({len(row)})', e)
                 else:
-                    raise DBError(f'unknown errors value: {errors}')
+                    raise DBError(f'Unknown errors value: {errors}')
                 if set_id_fn is not None:
                     set_id_fn(org_row, cur.lastrowid)
         finally:
