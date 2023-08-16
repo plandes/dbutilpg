@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [1.1.0] - 2023-08-16
+Functional and downstream moderate risk update release.
+
+### Changed
+- [zensols.dbutil] dependency, which has other downstream dependencies that
+  changes how configuration is handled.
+
+
 ## [1.0.0] - 2023-02-02
 ### Changed
 - Fix tests after upgrading `zensols.dbutil` .
@@ -56,7 +64,8 @@ First stable feature release.
 
 
 <!-- links -->
-[Unreleased]: https://github.com/plandes/dbutilpg/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/plandes/dbutilpg/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/plandes/dbutilpg/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/plandes/dbutilpg/compare/v0.1.0...v1.0.0
 [0.1.0]: https://github.com/plandes/dbutilpg/compare/v0.0.5...v0.1.0
 [0.0.5]: https://github.com/plandes/dbutilpg/compare/v0.0.4...v0.0.5
