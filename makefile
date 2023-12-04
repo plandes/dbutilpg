@@ -20,8 +20,11 @@ include ./zenbuild/main.mk
 
 .PHONY:		macosdep
 macosdep:
-		brew install libpq
-		PATH="$$(brew --prefix libpq)/bin:$$PATH" pip install psycopg2==2.8.3
+#		brew install libpq
+#		brew install --with-clang llvm
+		CC="$$(brew --prefix llvm@11)/bin/clang" \
+			PATH="$$PATH:$(brew --prefix libpq)/bin" \
+			pip install psycopg2==2.9.9
 
 .PHONY:		up
 up:
