@@ -3,7 +3,6 @@
 [![PyPI][pypi-badge]][pypi-link]
 [![Python 3.10][python310-badge]][python310-link]
 [![Python 3.11][python311-badge]][python311-link]
-[![Build Status][build-badge]][build-link]
 
 A [PostgreSQL] implementation of the [dbutil] library.
 
