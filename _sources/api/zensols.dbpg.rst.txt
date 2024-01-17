@@ -1,0 +1,23 @@
+zensols.dbpg package
+====================
+
+Submodules
+----------
+
+zensols.dbpg.postgres
+---------------------
+.. inheritance-diagram:: zensols.dbpg.postgres
+   :parts: 1
+
+.. automodule:: zensols.dbpg.postgres
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: zensols.dbpg
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,5 @@
+<map id="inheritanced85cfed2c9" name="inheritanced85cfed2c9">
+<area shape="rect" id="node1" title="Helper class that provides a standard way to create an ABC using" alt="" coords="97,5,169,36"/>
+<area shape="rect" id="node2" title="Instance DB&#45;API connection lifecycle." alt="" coords="41,84,226,115"/>
+<area shape="rect" id="node3" href="#zensols.dbpg.postgres.PostgresConnectionManager" target="_top" title="An Postgres connection factory." alt="" coords="5,163,261,193"/>
+</map>
