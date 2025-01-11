@@ -8,9 +8,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
-## [1.4.0] - 2024-01-17
+## [1.4.0] - 2025-01-11
+### Removed
+- Support for Python 3.10.
+
 ### Changed
-- Relax requirements for [zensols.dbutil] version 1.4.0.
+- Upgraded to [zensols.util] version 1.15.
+
+
+## [1.3.0] - 2024-01-17
+### Changed
+- Relax requirements for [zensols.dbutil] version 1.3.0.
 
 
 ## [1.2.0] - 2023-12-05
@@ -82,7 +90,8 @@ First stable feature release.
 
 <!-- links -->
 [Unreleased]: https://github.com/plandes/dbutilpg/compare/v1.4.0...HEAD
-[1.4.0]: https://github.com/plandes/dbutilpg/compare/v1.2.0...v1.4.0
+[1.4.0]: https://github.com/plandes/dbutilpg/compare/v1.3.0...v1.4.0
+[1.3.0]: https://github.com/plandes/dbutilpg/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/plandes/dbutilpg/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/plandes/dbutilpg/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/plandes/dbutilpg/compare/v0.1.0...v1.0.0
