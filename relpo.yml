@@ -13,7 +13,7 @@ project:
   # company or organization name
   domain: zensols
   # project name
-  name: dbutilpg
+  name: dbpg
   # project documentation
   short_description: PostgreSQL dbutil
   long_description: A PostgreSQL implementation of the dbutil library.
