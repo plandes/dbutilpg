@@ -3,7 +3,6 @@
 [![PyPI][pypi-badge]][pypi-link]
 [![Python 3.13][python313-badge]][python313-link]
 [![Python 3.12][python312-badge]][python312-link]
-[![Build Status][build-badge]][build-link]
 
 A [PostgreSQL] implementation of the [dbutil] library.
 
@@ -44,14 +43,12 @@ Copyright (c) 2019 - 2026 Paul Landes
 
 <!-- links -->
 [pypi]: https://pypi.org/project/zensols.dbutilpg/
-[pypi-link]: https://pypi.python.org/pypi/zensols.dbutilpg
-[pypi-badge]: https://img.shields.io/pypi/v/zensols.dbutilpg.svg
+[pypi-link]: https://pypi.python.org/pypi/zensols.dbpg
+[pypi-badge]: https://img.shields.io/pypi/v/zensols.dbpg.svg
 [python313-badge]: https://img.shields.io/badge/python-3.13-blue.svg
 [python313-link]: https://www.python.org/downloads/release/python-3130
 [python312-badge]: https://img.shields.io/badge/python-3.12-blue.svg
 [python312-link]: https://www.python.org/downloads/release/python-3120
-[build-badge]: https://github.com/plandes/dbutilpg/workflows/CI/badge.svg
-[build-link]: https://github.com/plandes/dbutilpg/actions
 
 
 [PostgreSQL]: https://www.postgresql.org
