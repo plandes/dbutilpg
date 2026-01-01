@@ -1,23 +1,28 @@
-## makefile automates the build and deployment for python projects
+#@meta {desc: "Python build configuration", date: "2025-12-31"}
 
+
+## Build system
+#
+#
 # type of project
-PROJ_TYPE=		python
-PROJ_MODULES=		git python-doc python-doc-deploy
+PROJ_TYPE =		python
+PROJ_MODULES =		python/doc python/package python/deploy
+PY_TEST_PRE_TARGETS =	testup
+CLEAN_DEPS +=		down dkcleanall
 
-# project
+
+## Project
+#
 POSTGRES_DIR ?=		postgres
 
-# build
-PY_DEP_POST_DEPS +=	macosdep
-CLEAN_DEPS +=		down
-CLEAN_ALL_DEPS +=	dkcleanall
-PY_TEST_DEPS +=		testup
-PYTHON_TEST_ENV = 	NLP_SERV=localhost NLP_PORT=5432 NLP_USER=sa NLP_PASS=sa1234
 
 
+## Includes
+#
 include ./zenbuild/main.mk
 
 
+# install the postgres client Python library on macOS
 .PHONY:		macosdep
 macosdep:
 		brew install libpq
@@ -26,17 +31,19 @@ macosdep:
 			PATH="$$PATH:$(brew --prefix libpq)/bin" \
 			pip install 'psycopg2~=2.9.9'
 
+## Docker
+#
 .PHONY:		up
 up:
-		make -C $(POSTGRES_DIR) up
+		@$(MAKE) $(PY_MAKE_ARGS) -C $(POSTGRES_DIR) up
 
 .PHONY:		down
 down:
-		make -C $(POSTGRES_DIR) down || true
+		@$(MAKE) $(PY_MAKE_ARGS) -C $(POSTGRES_DIR) down || true
 
 .PHONY:		dkcleanall
 dkcleanall:
-		make -C $(POSTGRES_DIR) cleanall rmvol
+		@$(MAKE) $(PY_MAKE_ARGS) -C $(POSTGRES_DIR) cleanall rmvol
 
 .PHONY:		testup
 testup:		up

@@ -1,14 +1,13 @@
 import logging
 import unittest
-from config import AppConfig
-from zensols.config import ImportConfigFactory
+from pathlib import Path
+from zensols.config import ImportIniConfig, ImportConfigFactory
 from zensols.db import Bean
 
-logger = logging.getLogger(__name__)
 
 if 0:
-    logging.basicConfig(level=logging.INFO)
-    logger.setLevel(logging.DEBUG)
+    logging.basicConfig(level=logging.DEBUG)
+    logger = logging.getLogger(__name__)
 
 
 class Person(Bean):
@@ -23,8 +22,7 @@ class Person(Bean):
 
 class TestPostgresConnManager(unittest.TestCase):
     def setUp(self):
-        self.config = AppConfig.instance()
-        self.fac = ImportConfigFactory(self.config)
+        self.fac = ImportConfigFactory(ImportIniConfig(Path('test-resources/dbutilpg.conf')))
 
     def tearDown(self):
         persister = self.fac.instance('inst_pg_db_persister')
